@@ -424,7 +424,7 @@ function onEachFeature2(feature, layer) {
 
 			// Ajout de toutes les catégories au menu de gauche
 			for (i in tabCategories){
-				selectCategories += '<li class="accordion" onclick="displayCategories(this)">&nbsp;' + i + '</li><div class="category-panel">'
+				selectCategories += '<li onclick="displayCategories(this)">&nbsp;' + i + '</li><div>'
 
 				for (j in tabCategories[i]) {
 					selectCategories += '<li style="margin-left:8px; font-size:13px;"><label style="all:unset; cursor: pointer;"><input id="' + j + '" type="checkbox" checked="true" onclick="onDisplayCheckBoxChanged(\'' + j.replace("'","\\'") + '\', \'' + i + '\');"> <img style="width:25px; height:25px;" src="image/'+categorieToPicto(j)+'.png">&nbsp' + j + '</label></li>'
