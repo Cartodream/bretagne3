@@ -112,36 +112,10 @@
 			//création de la carte et ajout du fond de carte
 			map = new L.Map('mymap', optionsDefaut);			
 			var mapboxtest = new L.TileLayer('https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png	', {
-				attribution: 'Cartographie : <a href="https://www.linkedin.com/in/alexandreponchon/">Alexandre PONCHON </a> , <a href="https://www.openstreetmap.fr/">OSM</a>'});
+				attribution: 'Données 11/2024, Cartographie : <a href="https://www.linkedin.com/in/alexandreponchon/">Alexandre PONCHON </a> , <a href="https://www.openstreetmap.fr/">OSM</a>'});
 			map.addLayer(mapboxtest);
-			var mapbox = new L.TileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-				attribution: 'Cartographie : <a href="https://www.linkedin.com/in/alexandreponchon/">Alexandre PONCHON </a> , <a href="https://www.openstreetmap.fr/">OSM</a>'});
 			
-			var mapbox2 = new L.TileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-				attribution: 'Cartographie : <a href="https://www.linkedin.com/in/alexandreponchon/">Alexandre PONCHON </a> , <a href="https://www.openstreetmap.fr/">OSM</a>'});
 			
-			var mapbox3 = new L.TileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
-				attribution: 'Cartographie : <a href="https://www.linkedin.com/in/alexandreponchon/">Alexandre PONCHON </a> , <a href="https://www.openstreetmap.fr/">OSM</a>'});
-			
-			var mapbox4 = new L.TileLayer('http://services.arcgisonline.com/arcgis/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
-				attribution: 'Cartographie : <a href="https://www.linkedin.com/in/alexandreponchon/">Alexandre PONCHON </a> , <a href="https://www.openstreetmap.fr/">OSM</a>'});
-			var mapboxbzh = new L.TileLayer('https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png	', {
-				attribution: 'Cartographie : <a href="https://www.linkedin.com/in/alexandreponchon/">Alexandre PONCHON </a> , <a href="https://www.openstreetmap.fr/">OSM</a>'});
-			var mapbox5 = new L.TileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png	', {
-				attribution: 'Cartographie : <a href="https://www.linkedin.com/in/alexandreponchon/">Alexandre PONCHON </a> , <a href="https://www.openstreetmap.fr/">OSM</a>'});
-			
-			//création de baseMaps et overlay Maps
-			var baseMaps = {
-	
-			"OpenStreet Map1" : mapbox,
-			"OSM2": mapbox3,
-			"OSM3": mapbox5,
-			"Aerien Esri" : mapbox2,			
-			"topomap Esri": mapbox4,
-			"breton OSM":mapboxbzh,
-			
-			};
-			L.control.layers(baseMaps).addTo(map)	
 			//ajout des controles de la carte : zoom, échelle, contrôle des couches
 			map.addControl(L.control.zoom({position: 'topright'}));
 			map.addControl(L.control.scale({
@@ -283,15 +257,15 @@ function onEachFeature2(feature, layer) {
 				// définition des popup et de leur contenu
 				
 				
-				var popupContent = '<b><font size="4pt"><center>'+currentFeature.properties.nom+'</center></font></b><br>'; // on créé une variable correspondant au contenu de la popup. On commence par lui affecter l'intitulé de l'entité
+				var popupContent = '<b><img class="imageflottante" src ="image/'+currentFeature.properties.logo+'.png" style="width:50px;height:50px;"></a><font size="3pt"><center>'+currentFeature.properties.nom+'</center></font></b>'  // on créé une variable correspondant au contenu de la popup. On commence par lui affecter l'intitulé de l'entité
 				
-				if (currentFeature.properties.logo != null && currentFeature.properties.logo != "") { // si l'entité courante contient un lien ou plusieurs liens vers des photos
-					var photos = currentFeature.properties.logo; // On récupère les photos dans une variable
-					var tabPhotos = photos.split(";");
-					popupContent += '<center><img src ="image/'+currentFeature.properties.logo+'.png" style="width:50px;height:50px;"></a></center><br>';
+				//if (currentFeature.properties.logo != null && currentFeature.properties.logo != "") { // si l'entité courante contient un lien ou plusieurs liens vers des photos
+				//	var photos = currentFeature.properties.logo; // On récupère les photos dans une variable
+				//	var tabPhotos = photos.split(";");
+				//	popupContent += '<img class="imageflottante" src ="image/'+currentFeature.properties.logo+'.png" style="width:50px;height:50px;"></a><br>';
 						
 	
-				}
+				//}
 				//if ((currentFeature.properties.zig != null) && (currentFeature.properties.zig != ""))
 					//popupContent += '<b>Zone d\'intervention géographique : </b>'+currentFeature.properties.zig+'<br>';
 
@@ -301,8 +275,8 @@ function onEachFeature2(feature, layer) {
 				//if ((currentFeature.properties.adresse != null) && (currentFeature.properties.adresse != ""))
 				//	popupContent += '<b>Adresse : </b>'+currentFeature.properties.adresse+' '+currentFeature.properties.cp+' '+currentFeature.properties.ville+'<br>';
 
-				if ((currentFeature.properties.txt_1 != null) && (currentFeature.properties.txt_1 != ""))
-					popupContent += '<b>Nombre de projets ESS accompagnés ou financé par an : </b>'+currentFeature.properties.txt_1+'<br>';
+				//if ((currentFeature.properties.txt_1 != null) && (currentFeature.properties.txt_1 != ""))
+				//	popupContent += '<b>Nombre de projets ESS accompagnés ou financé par an : </b>'+currentFeature.properties.txt_1+'<br>';
 
 				if ((currentFeature.properties.txt_2 != null) && (currentFeature.properties.txt_2 != ""))
 					popupContent += '<b>Etape de maturité accompagnée :  </b><br> '+currentFeature.properties.txt_2+'<br>';
@@ -392,7 +366,7 @@ function onEachFeature2(feature, layer) {
 				// dans le tableau poiLayers, on affecte au marker de l'entité correspondante une popup dont le contenu vient d'être défini
 				
 				if ((currentFeature.properties.accessibilité != "Non"))
-					popupContent += '<b>Itinéraire : </b><a target="_blank" href="https://www.google.com/maps/dir//'+currentFeature.properties.Latitude+','+currentFeature.properties.Longitude+'"><i><u>cliquer ici</i></u></a><br>'
+					popupContent += '<b>Adresse : '+currentFeature.properties.adresse+' - '+currentFeature.properties.cp+' '+currentFeature.properties.ville
 					else (popupContent +="");
 				if (typeof(poiLayers[currentFeature.properties.id].marker)!="undefined") {
 				poiLayers[currentFeature.properties.id].marker.bindPopup (popupContent, popupOptions);
@@ -529,7 +503,8 @@ function onEachFeature2(feature, layer) {
 				
 				<section id="left-panel" class="left-off-canvas-menu" style="background-color:rgba(89,79,84,0.8);">
 				
-				<center><img src="image/bdt.jpg"/></center>
+				<center><img src="image/bdt.jpg"/></center><br>
+				<center><img src="image/regbret.jpg"/></center>
 				  <ul class="off-canvas-list menu-checkbox" id="select-list">
 				  </ul>
 				</section>
