@@ -111,7 +111,7 @@
 
 			//création de la carte et ajout du fond de carte
 			map = new L.Map('mymap', optionsDefaut);			
-			var mapboxtest = new L.TileLayer('https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png	', {
+			var mapboxtest = new L.TileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png	', {
 				attribution: 'Données 11/2024, Cartographie : <a href="https://www.linkedin.com/in/alexandreponchon/">Alexandre PONCHON </a> , <a href="https://www.openstreetmap.fr/">OSM</a>'});
 			map.addLayer(mapboxtest);
 			
@@ -225,8 +225,10 @@ function onEachFeature2(feature, layer) {
 				style: sentierStyle, 
 				
 			});
+		
+		
 			
-			
+
 // *******************FIN TEST*************************
 
 			for(var i=0; i < sentiers_pdipr.length;i++){
@@ -282,10 +284,13 @@ function onEachFeature2(feature, layer) {
 					popupContent += '<b>Etape de maturité accompagnée :  </b><br> '+currentFeature.properties.txt_2+'<br>';
 
 				if ((currentFeature.properties.txt_3 != null) && (currentFeature.properties.txt_3 != ""))
-					popupContent +=currentFeature.properties.txt_3+'<br>';
+					popupContent +='<b>Dispositifs ou programme d\'accompagnement portés : </b>';
+
+				if ((currentFeature.properties.txt_3 != null) && (currentFeature.properties.txt_3 != ""))
+					popupContent +='<li>'+currentFeature.properties.txt_3+'</li>';
 
 				if ((currentFeature.properties.txt_4 != null) && (currentFeature.properties.txt_4 != ""))
-					popupContent +=currentFeature.properties.txt_4+'<br>';
+					popupContent +='<li>'+currentFeature.properties.txt_4+'</li>';
 				if ((currentFeature.properties.zig == "ille_et_vilaine"))
 				poiLayers[currentFeature.properties.id].marker.on("popupopen", function() {
 					var layer_ille_et_vilaine_0 = new L.geoJson(IEV35,{});
@@ -314,23 +319,23 @@ function onEachFeature2(feature, layer) {
 					map.removeLayer(layerGroup1);
 			})	})
 					if ((currentFeature.properties.txt_5 != null) && (currentFeature.properties.txt_5 != ""))
-					popupContent += currentFeature.properties.txt_5+'<br>';
+					popupContent += '<li>'+currentFeature.properties.txt_5+'</li>';
 
 				if ((currentFeature.properties.txt_6 != null) && (currentFeature.properties.txt_6 != ""))
-					popupContent += currentFeature.properties.txt_6+'<br>';
+					popupContent += '<li>'+currentFeature.properties.txt_6+'</li><br>';
 					
 
 					if ((currentFeature.properties.txt_7 != null) && (currentFeature.properties.txt_7 != ""))
 					popupContent += '<b>Etape de maturité financée : </b>'+currentFeature.properties.txt_7+'<br>';
 
 					if ((currentFeature.properties.txt_8 != null) && (currentFeature.properties.txt_8 != ""))
-					popupContent += '<b>Noms des dispositifs ou programmes de financement portés : </b>'+currentFeature.properties.txt_8+'<br>';
+					popupContent += '<b>Dispositifs ou programmes de financement portés : </b><br>';
 
 					if ((currentFeature.properties.txt_9 != null) && (currentFeature.properties.txt_9 != ""))
-					popupContent += currentFeature.properties.txt_9+'<br>';
+					popupContent += '<li>'+currentFeature.properties.txt_9+'</li>';
 
 					if ((currentFeature.properties.txt_10 != null) && (currentFeature.properties.txt_10 != ""))
-					popupContent +=currentFeature.properties.txt_10+'<br>';
+					popupContent +='<li>'+currentFeature.properties.txt_10+'</li><br>';
 
 					if ((currentFeature.properties.txt_11 != null) && (currentFeature.properties.txt_11 != ""))
 					popupContent += currentFeature.properties.txt_11+'<br>';
@@ -421,7 +426,7 @@ function onEachFeature2(feature, layer) {
 			map.fitBounds(perimetre_gip.getBounds()); // zoom automatique sur l'emprise du perimètre d'étude
 		
 		}//End initialize()
-
+		
 
 		//************* GESTION DU DEPLIAGE DES CATEGORIES ****************
 		function displayCategories(clickedEl) {
@@ -498,13 +503,14 @@ function onEachFeature2(feature, layer) {
 					<a class="left-off-canvas-toggle"><img id="toggleButton" class="hide-for-small-only" src="image/btn_filtrer_categories.png"><img class="show-for-small-only" src="image/btn_filtrer_categories_icon.png"></a>
 				</section>
 			</nav>
+			
 			<div class="inner-wrap">
 				<!-- menu gauche -->
 				
 				<section id="left-panel" class="left-off-canvas-menu" style="background-color:rgba(89,79,84,0.8);">
-				
+					<center ><b><font color=white><br>Acteurs de l'accompagnement et du financement de l'entrepreunariat à impact en Bretagne</font></b></center><br>
 				<center><img src="image/bdt.jpg"/></center><br>
-				<center><img src="image/regbret.jpg"/></center>
+				<center><img src="image/bret1.jpg"/></center>
 				  <ul class="off-canvas-list menu-checkbox" id="select-list">
 				  </ul>
 				</section>
