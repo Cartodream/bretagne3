@@ -271,8 +271,8 @@ function onEachFeature2(feature, layer) {
 				//if ((currentFeature.properties.zig != null) && (currentFeature.properties.zig != ""))
 					//popupContent += '<b>Zone d\'intervention géographique : </b>'+currentFeature.properties.zig+'<br>';
 
-				if ((currentFeature.properties.dpt_inter != null) && (currentFeature.properties.dpt_inter != ""))
-					popupContent += '<b>Département(s) d\'intervention : </b>'+currentFeature.properties.dpt_inter+'<br>';
+				if ((currentFeature.properties.zig != null) && (currentFeature.properties.zig != ""))
+					popupContent += '<b>Zone d\'intervention : </b>'+currentFeature.properties.zig+'<br>';
 
 				//if ((currentFeature.properties.adresse != null) && (currentFeature.properties.adresse != ""))
 				//	popupContent += '<b>Adresse : </b>'+currentFeature.properties.adresse+' '+currentFeature.properties.cp+' '+currentFeature.properties.ville+'<br>';
@@ -280,14 +280,46 @@ function onEachFeature2(feature, layer) {
 				//if ((currentFeature.properties.txt_1 != null) && (currentFeature.properties.txt_1 != ""))
 				//	popupContent += '<b>Nombre de projets ESS accompagnés ou financé par an : </b>'+currentFeature.properties.txt_1+'<br>';
 
-				if ((currentFeature.properties.txt_2 != null) && (currentFeature.properties.txt_2 != ""))
-					popupContent += '<b>Etape de maturité accompagnée :  </b><br> '+currentFeature.properties.txt_2+'<br>';
-
-				if ((currentFeature.properties.txt_3 != null) && (currentFeature.properties.txt_3 != ""))
+				if ((currentFeature.properties.etape_1 != null) && (currentFeature.properties.etape_1 != ""))
+					popupContent += '<b>Etape de maturité accompagnée :  </b><br> ';
+				if ((currentFeature.properties.etape_1 != null) && (currentFeature.properties.etape_1 != ""))
+					popupContent +='<li>'+currentFeature.properties.etape_1+'</li>';
+				if ((currentFeature.properties.etape_2 != null) && (currentFeature.properties.etape_2 != ""))
+					popupContent +='<li>'+currentFeature.properties.etape_2+'</li>';
+				if ((currentFeature.properties.etape_3 != null) && (currentFeature.properties.etape_3 != ""))
+					popupContent +='<li>'+currentFeature.properties.etape_3+'</li>';
+				if ((currentFeature.properties.etape_4 != null) && (currentFeature.properties.etape_4 != ""))
+					popupContent +='<li>'+currentFeature.properties.etape_4+'</li>';
+				if ((currentFeature.properties.etape_5 != null) && (currentFeature.properties.etape_5 != ""))
+					popupContent +='<li>'+currentFeature.properties.etape_5+'</li>';
+				if ((currentFeature.properties.etape_6 != null) && (currentFeature.properties.etape_6 != ""))
+					popupContent +='<li>'+currentFeature.properties.etape_6+'</li>';
+				if ((currentFeature.properties.acc_1 != null) && (currentFeature.properties.acc_1 != ""))
 					popupContent +='<b>Dispositifs ou programme d\'accompagnement portés : </b>';
-
-				if ((currentFeature.properties.txt_3 != null) && (currentFeature.properties.txt_3 != ""))
-					popupContent +='<li>'+currentFeature.properties.txt_3+'</li>';
+				if ((currentFeature.properties.acc_1 != null) && (currentFeature.properties.acc_1 != ""))
+					popupContent +='<li>'+currentFeature.properties.acc_1+'</li>';
+				if ((currentFeature.properties.acc_2 != null) && (currentFeature.properties.acc_2 != ""))
+					popupContent +='<li>'+currentFeature.properties.acc_2+'</li>';
+				if ((currentFeature.properties.acc_3 != null) && (currentFeature.properties.acc_3 != ""))
+					popupContent +='<li>'+currentFeature.properties.acc_3+'</li>';
+				if ((currentFeature.properties.acc_4 != null) && (currentFeature.properties.acc_4 != ""))
+					popupContent +='<li>'+currentFeature.properties.acc_4+'</li>';
+				if ((currentFeature.properties.acc_5 != null) && (currentFeature.properties.acc_5 != ""))
+					popupContent +='<li>'+currentFeature.properties.acc_5+'</li>';
+				if ((currentFeature.properties.fin_0 != null) && (currentFeature.properties.fin_0 != ""))
+					popupContent += '<b>Etape de maturité financée : </b>'+currentFeature.properties.fin_0+'<br>';
+				if ((currentFeature.properties.fin_1 != null) && (currentFeature.properties.fin_1 != ""))
+					popupContent += '<b>Dispositifs ou programmes de financement portés : </b><br>';
+				if ((currentFeature.properties.fin_1 != null) && (currentFeature.properties.fin_1 != ""))
+					popupContent += '<li>'+currentFeature.properties.fin_1+'</li>';
+				if ((currentFeature.properties.fin_2 != null) && (currentFeature.properties.fin_2 != ""))
+					popupContent += '<li>'+currentFeature.properties.fin_2+'</li>';
+				if ((currentFeature.properties.fin_3 != null) && (currentFeature.properties.fin_3 != ""))
+					popupContent += '<li>'+currentFeature.properties.fin_3+'</li>';
+				if ((currentFeature.properties.fin_4 != null) && (currentFeature.properties.fin_4 != ""))
+					popupContent += '<li>'+currentFeature.properties.fin_4+'</li>';
+				if ((currentFeature.properties.fin_5 != null) && (currentFeature.properties.fin_5 != ""))
+					popupContent += '<li>'+currentFeature.properties.fin_5+'</li>';
 
 				if ((currentFeature.properties.txt_4 != null) && (currentFeature.properties.txt_4 != ""))
 					popupContent +='<li>'+currentFeature.properties.txt_4+'</li>';
@@ -318,36 +350,10 @@ function onEachFeature2(feature, layer) {
 					map.on('popupclose',function(event){
 					map.removeLayer(layerGroup1);
 			})	})
-					if ((currentFeature.properties.txt_5 != null) && (currentFeature.properties.txt_5 != ""))
-					popupContent += '<li>'+currentFeature.properties.txt_5+'</li>';
-
-				if ((currentFeature.properties.txt_6 != null) && (currentFeature.properties.txt_6 != ""))
-					popupContent += '<li>'+currentFeature.properties.txt_6+'</li><br>';
-					
-
-					if ((currentFeature.properties.txt_7 != null) && (currentFeature.properties.txt_7 != ""))
-					popupContent += '<b>Etape de maturité financée : </b>'+currentFeature.properties.txt_7+'<br>';
-
-					if ((currentFeature.properties.txt_8 != null) && (currentFeature.properties.txt_8 != ""))
-					popupContent += '<b>Dispositifs ou programmes de financement portés : </b><br>';
-
-					if ((currentFeature.properties.txt_9 != null) && (currentFeature.properties.txt_9 != ""))
-					popupContent += '<li>'+currentFeature.properties.txt_9+'</li>';
-
-					if ((currentFeature.properties.txt_10 != null) && (currentFeature.properties.txt_10 != ""))
-					popupContent +='<li>'+currentFeature.properties.txt_10+'</li><br>';
-
-					if ((currentFeature.properties.txt_11 != null) && (currentFeature.properties.txt_11 != ""))
-					popupContent += currentFeature.properties.txt_11+'<br>';
-
-					if ((currentFeature.properties.txt_12 != null) && (currentFeature.properties.txt_12 != ""))
-					popupContent += '<b> Nom du dispositif ou programme de financement 4 : </b>'+currentFeature.properties.txt_12+'<br>';
-
-					if ((currentFeature.properties.txt_13 != null) && (currentFeature.properties.txt_13 != ""))
-					popupContent += '<b> Nom du dispositif ou programme de financement 5 : </b>'+currentFeature.properties.txt_13+'<br>';
-
+				
+				
 					if ((currentFeature.properties.prenom_contact != null) && (currentFeature.properties.prenom_contact != ""))
-					popupContent += '<b> Contact : </b>'+currentFeature.properties.prenom_contact+' '+currentFeature.properties.Nom_contact+'<br>';
+					popupContent += '<b> Contact : </b>'+currentFeature.properties.prenom_contact+' '+currentFeature.properties.nom_contact+'<br>';
 					if ((currentFeature.properties.Fonction != null) && (currentFeature.properties.Fonction != ""))
 					popupContent += '<b> Fonction : </b>'+currentFeature.properties.Fonction+'<br>';
 
@@ -508,11 +514,12 @@ function onEachFeature2(feature, layer) {
 				<!-- menu gauche -->
 				
 				<section id="left-panel" class="left-off-canvas-menu" style="background-color:rgba(89,79,84,0.8);">
-					<center ><b><font color=white><br>Acteurs de l'accompagnement et du financement de l'entrepreunariat à impact en Bretagne</font></b></center><br>
-				<center><img src="image/bdt.jpg"/></center><br>
-				<center><img src="image/bret1.jpg"/></center>
+					<center ><b><font color=white><br>Acteurs de l'accompagnement et du financement de l'entreprenariat à impact en Bretagne</font></b></center><br>
+				<center><img src="image/bdt.jpg" style="width:70%;"/></center><br>
+				<center><img src="image/bret1.jpg" style="width:70%;"/></center>
 				  <ul class="off-canvas-list menu-checkbox" id="select-list">
 				  </ul>
+				
 				</section>
 				<section class="main-section">
 					<div id="mymap" style="width:100%;"></div>
