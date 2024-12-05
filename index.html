@@ -148,14 +148,28 @@
 				// Set up styles for subway lines
 			
 			function batimentsStyle(feature) {
-				return {weight: 2,
+				return {weight: 5,
 						opacity: 1,
-						color: '#9f5cc0',
-						fillColor: '#9f5cc0',
-						fillOpacity: 0.2,
+						borderColor : '#0f0f0f',
+						
+						fillOpacity: 0,
+						interactive: true,
+				};
+			}      
+			function communesStyle(feature) {
+				return {weight: 1,
+						opacity: 1,
+						color:'#0f0f0f',
+						
+						
+						fillOpacity: 0,
 						interactive: false,
 				};
-			}          
+			} 
+			var bat = L.geoJson(communes,{
+				style: communesStyle, 
+				
+			}).addTo(map);
 			
       
 			
@@ -244,7 +258,7 @@ function onEachFeature2(feature, layer) {
 			var sentiers_pdipr = L.geoJson(sentiersPDIPR,{
 				style: sentierStyle, 
 				
-			});
+			})
 		
 		
 			
