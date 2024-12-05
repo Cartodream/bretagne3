@@ -70,6 +70,26 @@
 	
 
 		</script>
+		<style>
+			body,
+			.title {
+    color: black;
+	
+    font-family: 'Roboto', sans-serif;
+	
+    font-weight: 100px;
+}
+
+.mapTitle {
+    position: absolute;
+	background-color: azure;
+	opacity: 80%;
+    top: -10px;
+    right: 20%;
+    z-index: 999;
+    margin-left: 20%;
+}
+		</style>
 		<script>
 		popupOptions = {minWidth:350, maxWidth:350, maxHeight:400, closeButton:true}; //on défini la largeur max des popups à 400 pixels
 		var map;
@@ -514,8 +534,7 @@ function onEachFeature2(feature, layer) {
 				<!-- menu gauche -->
 				
 				<section id="left-panel" class="left-off-canvas-menu" style="background-color:rgba(89,79,84,0.8);">
-					<center ><b><font color=white><br>Acteurs de l'accompagnement et du financement de l'entreprenariat à impact en Bretagne</font></b></center><br>
-				<center><img src="image/bdt.jpg" style="width:70%;"/></center><br>
+				<center><br><img src="image/bdt.jpg" style="width:70%;"/></center><br>
 				<center><img src="image/bret1.jpg" style="width:70%;"/></center>
 				  <ul class="off-canvas-list menu-checkbox" id="select-list">
 				  </ul>
@@ -523,6 +542,8 @@ function onEachFeature2(feature, layer) {
 				</section>
 				<section class="main-section">
 					<div id="mymap" style="width:100%;"></div>
+					<div><h1 class="title mapTitle" ><font size = 4%><center><b>Acteurs de l'accompagnement et du financement de l'entreprenariat à impact en Bretagne</b></center></font></h1>
+
 				</section>
 
 				</div>
